@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        a:hover {
+            color: purple !important;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        header {
+            overflow: hidden;
+            transition: all 1s;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+        }
+
+        header h1 {
+            margin: 25px 0 0 200px;
+            position: absolute;
+        }
+
+        header.over {
+            background-color: white;
+            opacity: 50%;
+        }
+
+        header.over h1 a {
+            color: black;
+        }
+
+        header.over li a {
+            color: black;
+        }
+
+        header.down {
+            top: -100px;
+        }
+
+        header.up {
+            top: 0;
+        }
+
+        /* header.over h1 a:hover {
+            color: red;
+        }*/
+
+        /*header:hover {
+            background-color: white;
+        }*/
+        #header ul {
+            margin-left: 1300px;
+            list-style-type: none;
+            display: flex;
+            margin-top: 40px;
+            font-family: 'HY견고딕';
+            font-size: 20px;
+            color: black;
+            float: right;
+
+        }
+
+        #header ul li {
+            width: 120px;
+            position: relative;
+
+        }
+
+        header ul li:first-child {
+            padding-left: 0;
+        }
+
+        section {
+            height: 100vh;
+            background-image: url("./img/4w5.jpg");
+
+
+
+        }
+
+        section:nth-of-type(1) {
+            background-image: url("./img/4w1.jpg");
+            background-repeat: no-repeat;
+        }
+
+        section:nth-Of-type(even) {
+            background-image: url(./img/4w2.jpg);
+        }
+
+        section:nth-Of-type(even) img {
+            margin: 180px 0 0 340px;
+
+        }
+
+        p {
+            text-align: center;
+            font-family: 'HY견고딕';
+            font-size: 20px;
+            color: black;
+
+        }
+
+        #intro {
+            margin: 0;
+            padding: 0;
+        }
+
+        footer {
+            background-color: rgb(44, 44, 44);
+            height: 200px;
+        }
+
+        #footer_text {
+            float: right;
+            margin: 55px 50px 0 0;
+            color: white;
+            list-style-type: none;
+            font-size: 20px;
+            text-align: right;
+        }
+
+        #top {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 50px;
+            height: 30px;
+            background-color: white;
+            border: 1px solid skyblue;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <h1><a href="#">Dessert</a></h1>
+        <ul>
+            <li><a href="#">종류</a></li>
+            <li><a href="#">베이킹</a></li>
+            <li><a href="#">예약</a></li>
+            <li><a href="#">오는 길</a></li>
+        </ul>
+    </header>
+    <section>
+    </section>
+    <section><img src="./img/4wd1.png">
+        <p> 신메뉴 부터 인기메뉴, 추천메뉴까지
+            디저트의 모든 메뉴와 최신 소식을 살펴보세요.</p>
+    </section>
+    <section>
+    </section>
+    <footer>
+        <ul id="footer_text">
+            <li>Kaywon.ac.kr</li>
+            <li>Oh na young</li>
+            <li>ony817@Kaywon.ac.kr</li>
+        </ul>
+    </footer>
+    <button id="top">top</button>
+
+    <script>
+
+        var myHeader = document.getElementById("header");
+        // 마우스 이벤트
+        // console.log(document.getElementById("header"));
+        myHeader.onmouseover = function () {
+            console.log("this");
+            console.log("myHeader");
+            this.classList.add("over");
+            // this.style.backgroundColor = "white";
+            op
+        }
+        document.getElementById("header").onmouseout = function () {
+            this.classList.remove("over");
+            // document.getElementById("header").style.backgroundColor = "rgba(0, 0, 0, 0.5)";
+        }
+        // 스크롤 이벤트
+
+
+        window.addEventListener("scroll", function () {
+
+            console.log(window.scrollY);
+            if (window.scrollY > 200) {
+                console.log("200 이상");
+                //myHeader.style.top = -100 + "px";
+                myHeader.style.height = 0 + "px";
+                //myHeader.classList.add("down");
+                //myHeader.classList.remove("up");
+            } else {
+                console.log("200 미만");
+                // myHeader.style.top = 0 + "px";
+                myHeader.style.height = 100 + "px";
+                //myHeader.classList.remove("down");
+                //myHeader.classList.add("up");
+            }
+
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        var button = document.getElementById('top');
+        button.addEventListener('click', scrollToTop);
+    </script>
+</body>
+
+</html>
